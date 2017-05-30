@@ -1,6 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ImageJ macro for converting raw thermal png files from FLIR cameras to temperature values in degrees C
 // Author: Gustavo Pereyra Irujo - pereyrairujo.gustavo@conicet.gov.ar
+// Licensed under GNU GENERAL PUBLIC LICENSE Version 3
 // https://github.com/gpereyrairujo/IR_image_analysis
 
 // Ask for the directory of files to process
