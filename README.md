@@ -31,13 +31,39 @@ Thermal imaging has many uses in scientific research. In recent years, thermal c
 
 #### Relationship between temperature and infrared radiation
 
+<img src="https://latex.codecogs.com/svg.latex?S=G\cdot&space;L&plus;O%0">
+
+<img src="https://latex.codecogs.com/svg.latex?L_{\lambda}=\varepsilon&space;\cdot&space;\frac{2hc^{2}}{\lambda^{5}&space;}&space;\cdot&space;\frac{1}{e^{\frac{hc}{\lambda&space;kT}}-1}">
+
+<img src="https://latex.codecogs.com/svg.latex?L_{\lambda}=\varepsilon&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T}}-1)}">
+
+<img src="https://latex.codecogs.com/svg.latex?S=G\cdot&space;\varepsilon&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T}}-1)}&plus;O">
+
 #### Sources of radiation
+
+<img src="https://latex.codecogs.com/svg.latex?S=\tau&space;\cdot&space;S_{obj}&plus;\tau&space;\cdot&space;S_{refl}&plus;S_{atm}">
 
 #### Estimation of atmospheric transmissivity
 
+<img src="https://latex.codecogs.com/svg.latex?H=RH\cdot&space;e^{(1.5587\:&space;&plus;\:&space;6.939\cdot&space;10^{-2}\cdot&space;t\:&space;-\:&space;2.7816\cdot&space;10^{-4}\cdot&space;t^{2}\:&space;&plus;\:&space;6.8455\cdot&space;10^{-7}\cdot&space;t^{3})}">
+
+<img src="https://latex.codecogs.com/svg.latex?\tau&space;=X\cdot&space;e^{[-\sqrt{d}\cdot&space;(\alpha&space;_{1}&plus;\beta&space;_{1}\cdot&space;\sqrt{H})]}&plus;(1-X)\cdot&space;e^{[-\sqrt{d}\cdot&space;(\alpha&space;_{2}&plus;\beta&space;_{2}\cdot&space;\sqrt{H})]}">
+
 #### Estimation of digital signal values for different radiation sources
 
+<img src="https://latex.codecogs.com/svg.latex?S_{obj}=G\cdot&space;\varepsilon&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{obj}}}-1)}&plus;O">
+
+<img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\tau)&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{atm}}}-1)}&plus;O">
+
+<img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\varepsilon&space;)\cdot&space;(\varepsilon&space;_{refl})&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{refl}}}-1)}&plus;O">
+
+<img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\varepsilon&space;)\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{app.refl}}}-1)}&plus;O">
+
 #### Object temperature calculation
+
+<img src="https://latex.codecogs.com/svg.latex?S_{obj}=\frac{S_{tot}}{\tau&space;}-S_{refl}-\frac{S_{atm}}{\tau&space;}">
+
+<img src="https://latex.codecogs.com/svg.latex?T_{obj}=\frac{B}{log(\frac{G\cdot&space;\varepsilon&space;}{R\cdot&space;(S_{obj}-O)}&plus;1)}">
 
 ### Implementation
 
