@@ -5,8 +5,9 @@
 // Licensed under GNU GENERAL PUBLIC LICENSE Version 3
 // https://github.com/gpereyrairujo/IRimage
 
-// ---------------------------------------------------------------------------------------------------------
+macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e" {
 
+// ---------------------------------------------------------------------------------------------------------
 // 1. User input
 //    1.1. Ask for the directory of files to process
 //    1.2. Ask for parameter options
@@ -19,16 +20,15 @@
 //    2.6. Extract raw signal data from PNG image
 //    2.7. Calculate temperature values for each pixel
 // 3. Outputs
-//    3.1. Save file as TIFF
-//    3.2. Print image statistics
-//    3.3. Save file as false-color JPG
+//    3.1. Print image statistics to the Results window
+//    3.2. Save file as TIFF
+//    3.3. Save file as text table
+//    3.4. Save file as false-color PNG
 // 4. Close image
-
 // ---------------------------------------------------------------------------------------------------------
 
 // 1. User input
 // 1.1. Ask for the directory of files to process
-	setBatchMode(true);
 	dir = getDirectory("Choose a Directory ");
 
 // 1.2. Ask for parameter options
@@ -40,6 +40,7 @@
 
 
 // 2. File processing
+	setBatchMode(true);
     list = getFileList(dir);
     firstfile=true;
     for (i=0; i<list.length; i++) {
@@ -154,8 +155,8 @@
 
 // 2.5. Extract raw data to a PNG image
 		pathRAW = substring(path, 0, lastIndexOf(path, "."));
-		pathRAW = pathRAW+".PNG";
-		output = exec("exiftool", path, "-RawThermalImage", "-b", "-w",  "PNG");
+		pathRAW = pathRAW+"_RAW.PNG";
+		output = exec("exiftool", path, "-RawThermalImage", "-b", "-w", "%d%f_RAW.PNG");
 
 // 2.6. Extract raw signal data from PNG image
         IJ.redirectErrorMessages();
@@ -179,11 +180,7 @@
 		}
 
 // 3. Outputs
-// 3.1. Save file as TIFF
-		saveAs("tiff", path+"_temp");
-
-// 3.2. Print image statistics
-
+// 3.1. Print image statistics to the Results window
 		getStatistics(area, mean, min, max, std);
 		setResult("Image", nResults, imageName);
 		setResult("Area", nResults-1, area);
@@ -193,12 +190,19 @@
 		setResult("StDev", nResults-1, std);
 		setResult("CamModel", nResults-1, cameraModel);
 
-// 3.3. Save file as false-color JPG
+// 3.2. Save file as TIFF
+		saveAs("tiff", path+"_TEMP");
+
+// 3.3. Save file as text table
+		saveAs("Text Image", path+"_TEXT");
+
+// 3.4. Save file as false-color PNG
 		run("Fire");
-		saveAs("jpg", path+"_color");
+		saveAs("png", path+"_COLOR");
 
 // 4. Close image
 		run("Close");
 	}
 
+}
 
