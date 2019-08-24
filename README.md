@@ -55,7 +55,7 @@ By combining equations 1 and 3, it is possible to obtain an equation that repres
 
 The radiation received by the camera sensor is not equal to the radiation emitted by the object(s) in its field of view. Depending on the emissivity of the object’s surface, radiation reflected by the object’s surface can contribute significantly to the radiation received by the sensor. Furthermore, this radiation is then attenuated by the atmosphere (mainly by water molecules, but also by carbon dioxide) even at short distances (Minkina and Klecha, J. Sens. Sens. Syst., 5, 17–23, 2016). Taking this into account, the signal detected by the sensor (![DN](https://latex.codecogs.com/svg.latex?\inline&space;DN)) can be considered to be composed of three terms:
 
-<img src="https://latex.codecogs.com/svg.latex?S=\tau&space;\cdot&space;S_{obj}&plus;\tau&space;\cdot&space;S_{refl}&plus;S_{atm}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.5)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?S=\tau&space;\cdot&space;S_{obj}&plus;\tau&space;\cdot&space;S_{refl}&plus;S_{atm}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.5)
 
 The first term is the equivalent digital signal originating from the target object (![Sobj](https://latex.codecogs.com/svg.latex?\inline&space;S_{obj})), attenuated by the atmosphere, which is represented by the atmospheric transmissivity factor tau (![tau](https://latex.codecogs.com/svg.latex?\inline&space;\tau)). The second term is the equivalent digital signal from the reflected radiation originating from the target object’s surroundings (![Srefl](https://latex.codecogs.com/svg.latex?\inline&space;S_{refl})), also attenuated by the atmosphere. The last term is the equivalent digital signal originated from the atmosphere itself in the path between the object and the sensor (![Satm](https://latex.codecogs.com/svg.latex?\inline&space;S_{atm})).
 
@@ -65,35 +65,35 @@ There are many different models available to estimate atmospheric transmissivity
 
 In this paper, the method used in FLIR Systems’ cameras was adopted (FLIR manual reference), which estimates atmospheric transmissivity (![tau](https://latex.codecogs.com/svg.latex?\inline&space;\tau)) based on air water content (![H](https://latex.codecogs.com/svg.latex?\inline&space;H), calculated from air temperature, ![t](https://latex.codecogs.com/svg.latex?\inline&space;t), and relative humidity, ![RH](https://latex.codecogs.com/svg.latex?\inline&space;RH)), and the distance between the object and the sensor (![d](https://latex.codecogs.com/svg.latex?\inline&space;d)):
 
-<img src="https://latex.codecogs.com/svg.latex?H=RH\cdot&space;e^{(1.5587\:&space;&plus;\:&space;6.939\cdot&space;10^{-2}\cdot&space;t\:&space;-\:&space;2.7816\cdot&space;10^{-4}\cdot&space;t^{2}\:&space;&plus;\:&space;6.8455\cdot&space;10^{-7}\cdot&space;t^{3})}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.6)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?H=RH\cdot&space;e^{(1.5587\:&space;&plus;\:&space;6.939\cdot&space;10^{-2}\cdot&space;t\:&space;-\:&space;2.7816\cdot&space;10^{-4}\cdot&space;t^{2}\:&space;&plus;\:&space;6.8455\cdot&space;10^{-7}\cdot&space;t^{3})}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.6)
 
-<img src="https://latex.codecogs.com/svg.latex?\tau&space;=X\cdot&space;e^{[-\sqrt{d}\cdot&space;(\alpha&space;_{1}&plus;\beta&space;_{1}\cdot&space;\sqrt{H})]}&plus;(1-X)\cdot&space;e^{[-\sqrt{d}\cdot&space;(\alpha&space;_{2}&plus;\beta&space;_{2}\cdot&space;\sqrt{H})]}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.7)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?\tau&space;=X\cdot&space;e^{[-\sqrt{d}\cdot&space;(\alpha&space;_{1}&plus;\beta&space;_{1}\cdot&space;\sqrt{H})]}&plus;(1-X)\cdot&space;e^{[-\sqrt{d}\cdot&space;(\alpha&space;_{2}&plus;\beta&space;_{2}\cdot&space;\sqrt{H})]}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.7)
 
 #### Estimation of digital signal values for different radiation sources
 
 Assuming all temperatures and emissivities are know, the digital signal values originated from the different radiation sources can be estimated using equation 4. For the target object, the digital signal (![Sobj](https://latex.codecogs.com/svg.latex?\inline&space;S_{obj})) can be calculated based on the object temperature (![Tobj](https://latex.codecogs.com/svg.latex?\inline&space;T_{obj})) and its emissivity (![epsilon](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon)):
 
-<img src="https://latex.codecogs.com/svg.latex?S_{obj}=G\cdot&space;\varepsilon&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{obj}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.8)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?S_{obj}=G\cdot&space;\varepsilon&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{obj}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.8)
 
 The digital signal originated from the atmosphere between the object and the sensor (![Satm](https://latex.codecogs.com/svg.latex?\inline&space;S_{atm})) can be calculated based on air temperature (![Tatm](https://latex.codecogs.com/svg.latex?\inline&space;T_{atm})) and its emissivity, which is equal to ![1-tau](https://latex.codecogs.com/svg.latex?\inline&space;1-\tau):
 
-<img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\tau)&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{atm}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.9)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\tau)&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{atm}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.9)
 
 For estimating the digital signal from reflected by the target object (![Srefl](https://latex.codecogs.com/svg.latex?\inline&space;S_{refl})), one must take into account the reflectivity of the object, which is equal to ![1-epsilon](https://latex.codecogs.com/svg.latex?\inline&space;1-\varepsilon). Also, it should be necessary to know the temperature of the surrounding objects (![Trefl](https://latex.codecogs.com/svg.latex?\inline&space;T_{refl})) and their emissivity (![epsilonrefl](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon&space;_{refl})):
 
-<img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\varepsilon&space;)\cdot&space;(\varepsilon&space;_{refl})&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{refl}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.10)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\varepsilon&space;)\cdot&space;(\varepsilon&space;_{refl})&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{refl}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.10)
 
 Since in most cases it would be difficult to determine the temperature and emissivity of the reflected objects, the usual procedure is to estimate an “aparent reflected temperature” (![Tapp.refl](https://latex.codecogs.com/svg.latex?\inline&space;T_{app.refl})), by measuring the apparent temperature of a reflective material (![epsilonequalzero](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon\approx&space;0)). Using this procedure, Eq. 10 would be replaced by:
 
-<img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\varepsilon&space;)\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{app.refl}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.11)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?S_{atm}=G\cdot&space;(1-\varepsilon&space;)\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T_{app.refl}}}-1)}&plus;O"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.11)
 
 #### Object temperature calculation
 
 Finally, in order to calculate object temperature:
 
-<img src="https://latex.codecogs.com/svg.latex?S_{obj}=\frac{S_{tot}}{\tau&space;}-S_{refl}-\frac{S_{atm}}{\tau&space;}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.12)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?S_{obj}=\frac{S_{tot}}{\tau&space;}-S_{refl}-\frac{S_{atm}}{\tau&space;}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.12)
 
-<img src="https://latex.codecogs.com/svg.latex?T_{obj}=\frac{B}{\textup{log}(\frac{G\cdot&space;\varepsilon&space;}{R\cdot&space;(S_{obj}-O)}&plus;1)}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.13)
+&nbsp; <img src="https://latex.codecogs.com/svg.latex?T_{obj}=\frac{B}{\textup{log}(\frac{G\cdot&space;\varepsilon&space;}{R\cdot&space;(S_{obj}-O)}&plus;1)}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.13)
 
 ---
 
@@ -116,25 +116,25 @@ Parameter / Variable | Variable name in macro | Symbol used in equations | Eq. |
 _Calibration / camera-specific parameters_ | 
 Raw Thermal Image Type (PNG or TIFF) | imageType |  |  | Raw Thermal Image Type
 Camera Model | cameraModel |  |  | Camera Model
-Sensor gain | sensorG | G | 1 | Planck R1
-Sensor offset | sensorO | O | 1 | Planck O
-Sensor calibration parameter B | sensorB | B | 4 | Planck B
+Sensor gain | sensorG | ![G](https://latex.codecogs.com/svg.latex?\inline&space;G) | 1 | Planck R1
+Sensor offset | sensorO | ![O](https://latex.codecogs.com/svg.latex?\inline&space;O) | 1 | Planck O
+Sensor calibration parameter B | sensorB | ![B](https://latex.codecogs.com/svg.latex?\inline&space;B) | 4 | Planck B
 Sensor calibration parameter F * | sensorF |  |  | Planck F
-Sensor calibration parameter R | sensorR | R | 4 | Planck R2
+Sensor calibration parameter R | sensorR | ![R](https://latex.codecogs.com/svg.latex?\inline&space;R) | 4 | Planck R2
 _Atmospheric parameters_ | 
-Atmospheric transmissivity parameter 1 | atmAlpha1 | 1 | 7 | Atmospheric Trans Alpha 1
-Atmospheric transmissivity parameter 2 | atmAlpha2 | 2 | 7 | Atmospheric Trans Alpha 2
-Atmospheric transmissivity parameter 1 | atmBeta1 | 1 | 7 | Atmospheric Trans Beta 1
-Atmospheric transmissivity parameter 2 | atmBeta2 | 2 | 7 | Atmospheric Trans Beta 2
-Atmospheric transmissivity parameter X | atmX | X | 7 | Atmospheric Trans X
+Atmospheric transmissivity parameter 1 | atmAlpha1 | ![alpha1](https://latex.codecogs.com/svg.latex?\inline&space;\alpha_{1}) | 7 | Atmospheric Trans Alpha 1
+Atmospheric transmissivity parameter 2 | atmAlpha2 | ![alpha2](https://latex.codecogs.com/svg.latex?\inline&space;\alpha_{2}) | 7 | Atmospheric Trans Alpha 2
+Atmospheric transmissivity parameter 1 | atmBeta1 | ![beta1](https://latex.codecogs.com/svg.latex?\inline&space;\beta_{1}) | 7 | Atmospheric Trans Beta 1
+Atmospheric transmissivity parameter 2 | atmBeta2 | ![beta2](https://latex.codecogs.com/svg.latex?\inline&space;\beta_{2}) | 7 | Atmospheric Trans Beta 2
+Atmospheric transmissivity parameter X | atmX | ![X](https://latex.codecogs.com/svg.latex?\inline&space;X) | 7 | Atmospheric Trans X
 User-selected parameters |  |  |  | 
 Apparent reflected temperature (°C) | appReflTemp_C |  |  | Reflected Apparent Temperature
-Air temperature (°C) | airTemp_C | t | 6 | Atmospheric Temperature
-Object emissivity | objEmissivity |  | 4 | Emissivity
-Air relative humidity | airRelHumidity_perc | RH | 6 | Relative Humidity
-Object distance from camera | objDistance_m | d | 7 | Object Distance
+Air temperature (°C) | airTemp_C | ![t](https://latex.codecogs.com/svg.latex?\inline&space;t) | 6 | Atmospheric Temperature
+Object emissivity | objEmissivity | ![epsilon](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon) | 4 | Emissivity
+Air relative humidity | airRelHumidity_perc | ![RH](https://latex.codecogs.com/svg.latex?\inline&space;RH) | 6 | Relative Humidity
+Object distance from camera | objDistance_m | ![d](https://latex.codecogs.com/svg.latex?\inline&space;d) | 7 | Object Distance
 
-_* This parameter is included in the JPG EXIF tags but it is always equal to 1, and is equivalent to the value of 1 in the term (eBT-1)in Eq. 4_
+_* This parameter is included in the JPG EXIF tags but it is always equal to 1, and is equivalent to the value of 1 in the term ![eBT-1](https://latex.codecogs.com/svg.latex?\inline&space;(e^{\frac{B}{T}}-1)) in Eq. 4_
 
 #### Calculation of derived variables
 
@@ -143,12 +143,12 @@ The next step is the calculation of variables derived from these parameters, inc
 Parameter / variable | Variable name in macro | Symbol used in equations | Eq.
 --- | --- | --- | ---
 Raw image byte order / endianness | byteOrderLittleEndian |  | 
-Aparent reflected temperature (K) | appReflTemp_K | Tapp.refl | 11
-Air temperature (K) | airTemp_K | Tatm | 9
-Air water content | airWaterContent | H | 7
-Atmospheric transmissivity | atmTau |  | 5
-Raw signal from atmosphere (DN) | atmRawSignal_DN | Satm | 5
-Raw signal from reflected radiation (DN) | reflRawSignal_DN | Srefl | 5
+Aparent reflected temperature (K) | appReflTemp_K | ![Tapp.refl](https://latex.codecogs.com/svg.latex?\inline&space;T_{app.refl}) | 11
+Air temperature (K) | airTemp_K | ![Tatm](https://latex.codecogs.com/svg.latex?\inline&space;T_{atm}) | 9
+Air water content | airWaterContent | ![H](https://latex.codecogs.com/svg.latex?\inline&space;H) | 7
+Atmospheric transmissivity | atmTau | ![tau](https://latex.codecogs.com/svg.latex?\inline&space;\tau) | 5
+Raw signal from atmosphere (DN) | atmRawSignal_DN | ![Satm](https://latex.codecogs.com/svg.latex?\inline&space;S_{atm}) | 5
+Raw signal from reflected radiation (DN) | reflRawSignal_DN | ![Srefl](https://latex.codecogs.com/svg.latex?\inline&space;S_{refl}) | 5
 
 #### Temperature calculation
 
@@ -156,9 +156,9 @@ First, using the exiftool software, raw data is extracted in PNG format. The res
 
 Parameter / Variable | Variable name in macro | Symbol used in equations | Eq. | EXIF tag name in FLIR JPG file
 --- | --- | --- | --- | ---
-Raw sensor signal (DN) * | rawSignal_DN | S | 1 | Raw Thermal Image
-Raw signal from object (DN) | objRawSignal_DN | Sobj | 5 | 
-Object temperature (°C) | objTemp_C | Tobj | 8 | 
+Raw sensor signal (DN) * | rawSignal_DN | ![S](https://latex.codecogs.com/svg.latex?\inline&space;S) | 1 | Raw Thermal Image
+Raw signal from object (DN) | objRawSignal_DN | ![Sobj](https://latex.codecogs.com/svg.latex?\inline&space;S_{obj}) | 5 | 
+Object temperature (°C) | objTemp_C | ![Tobj](https://latex.codecogs.com/svg.latex?\inline&space;T_{obj}) | 8 | 
 
 _* All raw sensor signal values are extracted as a PNG format image, then each pixel is processed sequencially, storing each value in the rawSignal_DN variable._
 
