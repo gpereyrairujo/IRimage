@@ -43,7 +43,7 @@ Measuring radiance can be used to measure temperature because the total amount o
 
 &nbsp; <img src="https://latex.codecogs.com/svg.latex?L_{\lambda}=\varepsilon&space;\cdot&space;\frac{2hc^{2}}{\lambda^{5}&space;}&space;\cdot&space;\frac{1}{e^{\frac{hc}{\lambda&space;kT}}-1}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.2)
 
-where ![epsilon](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon) is the emissivity of the surface, ![h](https://latex.codecogs.com/svg.latex?\inline&space;h) is the Planck constant, ![k](https://latex.codecogs.com/svg.latex?\inline&space;k) is the Boltzmann constant, ![c](https://latex.codecogs.com/svg.latex?\inline&space;c) is the speed of light in the medium, ![lambda](https://latex.codecogs.com/svg.latex?\inline&space;\lambda) is the wavelength, and ![T](https://latex.codecogs.com/svg.latex?\inline&space;T) is the absolute temperature of that surface (in kelvins). This equation needs to be integrated over the spectral band corresponding to the detector sensitivity (SW, MW, LW, depending on the type of sensor) or, for simplicity, be multiplied by the spectral sensitivity range (Gaussorges and Chomet, 1994). For a given camera (i.e., combination of electronics, sensors and lenses) this equation can be simplified:
+where ![epsilon](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon) is the emissivity of the surface, ![h](https://latex.codecogs.com/svg.latex?\inline&space;h) is the Planck constant, ![k](https://latex.codecogs.com/svg.latex?\inline&space;k) is the Boltzmann constant, ![c](https://latex.codecogs.com/svg.latex?\inline&space;c) is the speed of light in the medium, ![lambda](https://latex.codecogs.com/svg.latex?\inline&space;\lambda) is the wavelength, and ![T](https://latex.codecogs.com/svg.latex?\inline&space;T) is the absolute temperature of that surface (in kelvins). This equation needs to be integrated over the spectral band corresponding to the detector sensitivity (SW, MW, LW, depending on the type of sensor) or, for simplicity, be multiplied by the spectral sensitivity range [1]. For a given camera (i.e., combination of electronics, sensors and lenses) this equation can be simplified:
 
 &nbsp; <img src="https://latex.codecogs.com/svg.latex?L_{\lambda}=\varepsilon&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T}}-1)}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.3)
 
@@ -173,3 +173,4 @@ The resulting image with temperature values for each pixel is stored in a separa
 [ImageJ]: https://imagej.nih.gov/ij/index.html
 [FIJI]: https://imagej.net/Fiji
 [ExifTool]: http://owl.phy.queensu.ca/~phil/exiftool/
+[1]: https://doi.org/10.1007/978-94-011-0711-2 - Gaussorgues, G. (1994). Infrared thermography. Microwave technology series. Springer.
