@@ -3,7 +3,7 @@
 Images taken with FLIR cameras available as unmodified jpg files in Wikimedia Commons, downloaded on 16 Jun 2019 from https://commons.wikimedia.org/wiki/Category:Photos_taken_with_FLIR_Systems
 
 
-Img # | ---Image--- | Image Name | Camera Model | Link | License
+Img # | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Image Name | Camera Model | Link | License
 --- | --- | --- | --- | --- | ---
 1 | <img src="https://github.com/gpereyrairujo/IRimage/blob/master/example_images/200_deg_neutral.jpg" width="160"> | 200_deg_neutral.jpg | ThermaCAM SC640 | https://commons.wikimedia.org/wiki/File:200_deg_neutral.jpg | CC0
 2 | <img src="https://github.com/gpereyrairujo/IRimage/blob/master/example_images/20080128191209!IRWaterCooler.jpg" width="160"> | 20080128191209!IRWaterCooler.jpg | InfraCAM Wester | https://commons.wikimedia.org/wiki/File:IRWaterCooler.jpg | CC-BY
