@@ -83,6 +83,8 @@ macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e"
 			columns=split(rows[rows.length-1],":"); 	// extract camera model
 			cameraModel=substring(columns[1],1);
 
+			if(cameraModel=="ThermaCAM EX320") byteOrderLittleEndian=false;   // known exception to the TIFF/PNG rule
+
 			sensorG = value[0];
 			sensorB = value[1];
 			sensorF = value[2];
