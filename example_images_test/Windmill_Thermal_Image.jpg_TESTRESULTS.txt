@@ -1,0 +1,3 @@
+Windmill_Thermal_Image.csv  vs.  Windmill_Thermal_Image.jpg_TEXT.txt
+Temperature differences below 0.005°C (excluding pixels with temperature below -40°C):
+100 %

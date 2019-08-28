@@ -1,0 +1,3 @@
+Man_in_water_-_IR_image.csv  vs.  Man_in_water_-_IR_image.jpg_TEXT.txt
+Temperature differences below 0.005°C (excluding pixels with temperature below -40°C):
+100 %

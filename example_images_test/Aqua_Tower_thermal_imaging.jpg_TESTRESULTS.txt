@@ -1,0 +1,3 @@
+Aqua_Tower_thermal_imaging.csv  vs.  Aqua_Tower_thermal_imaging.jpg_TEXT.txt
+Temperature differences below 0.005°C (excluding pixels with temperature below -40°C):
+100 %
