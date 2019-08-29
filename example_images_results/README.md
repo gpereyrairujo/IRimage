@@ -1,10 +1,11 @@
-## Results of example images
+## Results of [example images](https://github.com/gpereyrairujo/IRimage/tree/master/example_images)
 
 Results include:
 - raw radiometric data (.png)
 - calculated temperature data in image format (.tif)
 - calculated temperature data in table format (.txt)
 - false color image (.png)
+- [Summary statistics](https://github.com/gpereyrairujo/IRimage/blob/master/example_images_results/Results.CSV) for all images (.csv)
 
 Img # | Original image | Processed image
 --- | --- | ---
