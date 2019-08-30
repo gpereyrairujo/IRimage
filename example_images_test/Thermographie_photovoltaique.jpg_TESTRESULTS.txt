@@ -1,3 +1,4 @@
-Thermographie_photovoltaique.csv  vs.  Thermographie_photovoltaique.jpg_TEXT.txt
-Temperature differences below 0.005°C (excluding pixels with temperature below -40°C):
-100 %
+Thermographie_photovoltaique.csv vs. Thermographie_photovoltaique.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 11.8958 %
+Average temperature difference: 3.6073E-6 °C
+Temperature differences above 0.01°C: 0 %
