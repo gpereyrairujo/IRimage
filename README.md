@@ -4,7 +4,7 @@
 
 Thermal imaging has many uses in scientific research. In recent years, thermal cameras have lowered their price, and even affordable (<$300) consumer cameras are now available. These cameras, available as stand-alone devices or smartphone attachments, have the potential to improve access to thermography in many fields of research. These cameras, however, are usually coupled to limited software, aimed at an non-scientific users. This software is usually limited to providing color-coded images and simple temperature measurements of manually-selected points or areas in the image. In many cases, the images are a result of blending visible and thermal images for improved resolution, which limits the extraction of temperature data from them. Moreover, software is usually closed-source, which does not allow the user to know the algorithms used to obtain the temperature measurements and the final image. For a thermal camera (or any sensor) to be useful for research, the user should be able to have control over (or at least information about) the processing steps between the raw sensor data and the final measurement.
 
-``IRimage`` allows researchers to extract raw data and calculate temperature values from images of thermal cameras, making this data available for further processing using widely used scientific image analysis software. This tool was implemented as a macro for the open source software [ImageJ] [[1]] or [FIJI] [[2]], and is based on the open source software [ExifTool] [[3]] to extract raw values from the thermal images for further calculations. It was implemented and tested using FLIR cameras, but the algorithms are potentially adaptable for other cameras for which raw sensor data could be obtained. 
+``IRimage`` allows researchers to extract raw data and calculate temperature values from images of thermal cameras, making this data available for further processing using widely used scientific image analysis software. This tool was implemented as a macro for the open source software [ImageJ] [[1]] or [FIJI] [[2]], and is based on the open source software [ExifTool] [[3]] to extract raw values from the thermal images for further calculations. It was implemented and tested using FLIR cameras, but the algorithms are potentially adaptable for other cameras for which raw sensor data could be obtained. Earlier versions of this tool were used to benchmark a low cost thermal camera [[4]] and to analyze thermal images of wheat varieties [[5]]. 
 
 ``IRimage`` follows four steps when processing the images: 1. user input, 2. extraction of camera calibration and environmental parameters from input files and calculation of derived variables, 3. calculation of temperature from raw values, 4. storage of the resulting images. The algorithm used for temperature calculation is detailed in the documentation.
 
@@ -43,7 +43,7 @@ Measuring radiance can be used to measure temperature because the total amount o
 
 &nbsp; <img src="https://latex.codecogs.com/svg.latex?L_{\lambda}=\varepsilon&space;\cdot&space;\frac{2hc^{2}}{\lambda^{5}&space;}&space;\cdot&space;\frac{1}{e^{\frac{hc}{\lambda&space;kT}}-1}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.2)
 
-where ![epsilon](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon) is the emissivity of the surface, ![h](https://latex.codecogs.com/svg.latex?\inline&space;h) is the Planck constant, ![k](https://latex.codecogs.com/svg.latex?\inline&space;k) is the Boltzmann constant, ![c](https://latex.codecogs.com/svg.latex?\inline&space;c) is the speed of light in the medium, ![lambda](https://latex.codecogs.com/svg.latex?\inline&space;\lambda) is the wavelength, and ![T](https://latex.codecogs.com/svg.latex?\inline&space;T) is the absolute temperature of that surface (in kelvins). This equation needs to be integrated over the spectral band corresponding to the detector sensitivity (SW, MW, LW, depending on the type of sensor) or, for simplicity, be multiplied by the spectral sensitivity range [[1]]. For a given camera (i.e., combination of electronics, sensors and lenses) this equation can be simplified:
+where ![epsilon](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon) is the emissivity of the surface, ![h](https://latex.codecogs.com/svg.latex?\inline&space;h) is the Planck constant, ![k](https://latex.codecogs.com/svg.latex?\inline&space;k) is the Boltzmann constant, ![c](https://latex.codecogs.com/svg.latex?\inline&space;c) is the speed of light in the medium, ![lambda](https://latex.codecogs.com/svg.latex?\inline&space;\lambda) is the wavelength, and ![T](https://latex.codecogs.com/svg.latex?\inline&space;T) is the absolute temperature of that surface (in kelvins). This equation needs to be integrated over the spectral band corresponding to the detector sensitivity (SW, MW, LW, depending on the type of sensor) or, for simplicity, be multiplied by the spectral sensitivity range [[6]]. For a given camera (i.e., combination of electronics, sensors and lenses) this equation can be simplified:
 
 &nbsp; <img src="https://latex.codecogs.com/svg.latex?L_{\lambda}=\varepsilon&space;\cdot&space;\frac{1}{R\cdot&space;(e^{\frac{B}{T}}-1)}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.3)
 
@@ -53,7 +53,7 @@ By combining equations 1 and 3, it is possible to obtain an equation that repres
 
 #### Sources of radiation
 
-The radiation received by the camera sensor is not equal to the radiation emitted by the object(s) in its field of view. Depending on the emissivity of the object’s surface, radiation reflected by the object’s surface can contribute significantly to the radiation received by the sensor. Furthermore, this radiation is then attenuated by the atmosphere (mainly by water molecules, but also by carbon dioxide) even at short distances [[5]]. Taking this into account, the signal detected by the sensor (![DN](https://latex.codecogs.com/svg.latex?\inline&space;DN)) can be considered to be composed of three terms:
+The radiation received by the camera sensor is not equal to the radiation emitted by the object(s) in its field of view. Depending on the emissivity of the object’s surface, radiation reflected by the object’s surface can contribute significantly to the radiation received by the sensor. Furthermore, this radiation is then attenuated by the atmosphere (mainly by water molecules, but also by carbon dioxide) even at short distances [[7]]. Taking this into account, the signal detected by the sensor (![DN](https://latex.codecogs.com/svg.latex?\inline&space;DN)) can be considered to be composed of three terms:
 
 &nbsp; <img src="https://latex.codecogs.com/svg.latex?S=\tau&space;\cdot&space;S_{obj}&plus;\tau&space;\cdot&space;S_{refl}&plus;S_{atm}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.5)
 
@@ -61,9 +61,9 @@ The first term is the equivalent digital signal originating from the target obje
 
 #### Estimation of atmospheric transmissivity
 
-There are many different models available to estimate atmospheric transmissivity. For short distances, simple models that take into account the amount of water in the air can provide adequate estimates. For long distances (e.g. for infrared cameras used in satellites),  more sophisticated models which take into account not only water but also carbon dioxide, ozone, and other moleculas, and other atmospheric factors such as scattering, e.g.: the method by Więcek; the Pasman - Larmore tables, which take into account not only water content, but also carbon dioxide (absortion at λ=4.3µm) concentration in the air, and can be used for different wavelengths [[4]]; more sophisticated models which take into account many different atmospheric factors, which are used for corrections in long distance measurements (e.g. from satellites) such as the LOWTRAN model [[6]]. 
+There are many different models available to estimate atmospheric transmissivity. For short distances, simple models that take into account the amount of water in the air can provide adequate estimates. For long distances (e.g. for infrared cameras used in satellites),  more sophisticated models which take into account not only water but also carbon dioxide, ozone, and other moleculas, and other atmospheric factors such as scattering, e.g.: the method by Więcek; the Pasman - Larmore tables, which take into account not only water content, but also carbon dioxide (absortion at λ=4.3µm) concentration in the air, and can be used for different wavelengths [[6]]; more sophisticated models which take into account many different atmospheric factors, which are used for corrections in long distance measurements (e.g. from satellites) such as the LOWTRAN model [[8]]. 
 
-In this paper, the method used in FLIR Systems’ cameras was adopted [[7]], which estimates atmospheric transmissivity (![tau](https://latex.codecogs.com/svg.latex?\inline&space;\tau)) based on air water content (![H](https://latex.codecogs.com/svg.latex?\inline&space;H), calculated from air temperature, ![t](https://latex.codecogs.com/svg.latex?\inline&space;t), and relative humidity, ![RH](https://latex.codecogs.com/svg.latex?\inline&space;RH)), and the distance between the object and the sensor (![d](https://latex.codecogs.com/svg.latex?\inline&space;d)):
+In this paper, the method used in FLIR Systems’ cameras was adopted [[9]], which estimates atmospheric transmissivity (![tau](https://latex.codecogs.com/svg.latex?\inline&space;\tau)) based on air water content (![H](https://latex.codecogs.com/svg.latex?\inline&space;H), calculated from air temperature, ![t](https://latex.codecogs.com/svg.latex?\inline&space;t), and relative humidity, ![RH](https://latex.codecogs.com/svg.latex?\inline&space;RH)), and the distance between the object and the sensor (![d](https://latex.codecogs.com/svg.latex?\inline&space;d)):
 
 &nbsp; <img src="https://latex.codecogs.com/svg.latex?H=RH\cdot&space;e^{(1.5587\:&space;&plus;\:&space;6.939\cdot&space;10^{-2}\cdot&space;t\:&space;-\:&space;2.7816\cdot&space;10^{-4}\cdot&space;t^{2}\:&space;&plus;\:&space;6.8455\cdot&space;10^{-7}\cdot&space;t^{3})}"> &nbsp; &nbsp; &nbsp; &nbsp; (Eq.6)
 
@@ -180,10 +180,12 @@ This work was largely based on the methods described by user 'tomas123' in the [
 [1]: https://doi.org/10.1186/s12859-017-1934-z
 [2]: https://doi.org/10.1038/nmeth.2019
 [3]: http://owl.phy.queensu.ca/~phil/exiftool/
-[4]: https://doi.org/10.1007/978-94-011-0711-2
-[5]: https://doi.org/10.5194/jsss-5-17-2016
-[6]: https://doi.org/10.1016/j.infrared.2016.06.025
-[7]: http://support.flir.com/DocDownload/Assets/dl/557344$b.pdf
+[4]: https://www.plant-phenotyping.org/lw_resource/datapool/_items/item_321/book_of_abstracts_web.pdf
+[5]: http://intrabalc.inta.gob.ar/dbtw-wpd/images/Cacciabue-G-N.pdf
+[6]: https://doi.org/10.1007/978-94-011-0711-2
+[7]: https://doi.org/10.5194/jsss-5-17-2016
+[8]: https://doi.org/10.1016/j.infrared.2016.06.025
+[9]: http://support.flir.com/DocDownload/Assets/dl/557344$b.pdf
 [ExifTool Forum]: http://u88.n24.queensu.ca/exiftool/forum/index.php/topic,4898.0.html
 
 [[1]] Rueden, C. T.; Schindelin, J. & Hiner, M. C. et al. (2017). ImageJ2: ImageJ for the next generation of scientific image data. BMC Bioinformatics 18:529, PMID 29187165, https://doi.org/10.1186/s12859-017-1934-z 
@@ -192,13 +194,17 @@ This work was largely based on the methods described by user 'tomas123' in the [
 
 [[3]] Harvey, P. (2003). ExifTool. Software package available at http://owl.phy.queensu.ca/~phil/exiftool/
 
-[[4]] Gaussorgues, G. (1994). Infrared thermography. Microwave technology series. Springer. https://doi.org/10.1007/978-94-011-0711-2
+[[4]] Pereyra Irujo, G; Aguirrezábal, L.; Fiorani, F.; Pieruschka, R. (2015). Benchmarking of an affordable thermal camera for plant phenotyping. EPPN Plant Phenotyping Symposium, Barcelona, Spain. Book of Abstracts, p. 31. Available at https://www.plant-phenotyping.org/lw_resource/datapool/_items/item_321/book_of_abstracts_web.pdf
 
-[[5]] Minkina, W. and Klecha, D. (2016). Atmospheric transmission coefficient modelling in the infrared for thermovision measurements, J. Sens. Sens. Syst., 5, 17-23, https://doi.org/10.5194/jsss-5-17-2016
+[[5]] Cacciabue, G.N. (2016). Protocolos de medición de temperatura de canopeo y su relación con el rendimiento potencial de cultivares de trigo. Trabajo de Graduación. Ing.Agr. Universidad Nacional de Mar del Plata; Facultad de Ciencias Agrarias: Balcarce, Buenos Aires, AR. 2016 . 42p. Available at http://intrabalc.inta.gob.ar/dbtw-wpd/images/Cacciabue-G-N.pdf
 
-[[6]] Zhang, Y. C., Chen, Y. M., Fu, X. B., & Luo, C. (2016). The research on the effect of atmospheric transmittance for the measuring accuracy of infrared thermal imager. Infrared Physics & Technology, 77, 375-381. https://doi.org/10.1016/j.infrared.2016.06.025
+[[6]] Gaussorgues, G. (1994). Infrared thermography. Microwave technology series. Springer. https://doi.org/10.1007/978-94-011-0711-2
 
-[[7]] FLIR Systems. Toolkit IC2 Dig16 Developer’s Guide 1.01 AGEMA® 550/570, ThermaCAM™ PM5X5 and the ThermoVision™family (en‑US). FLIR Publication number 557344 version B. Available online at http://flir.custhelp.com/app/account/fl_download_manuals (http://support.flir.com/DocDownload/Assets/dl/557344$b.pdf)
+[[7]] Minkina, W. and Klecha, D. (2016). Atmospheric transmission coefficient modelling in the infrared for thermovision measurements, J. Sens. Sens. Syst., 5, 17-23, https://doi.org/10.5194/jsss-5-17-2016
+
+[[8]] Zhang, Y. C., Chen, Y. M., Fu, X. B., & Luo, C. (2016). The research on the effect of atmospheric transmittance for the measuring accuracy of infrared thermal imager. Infrared Physics & Technology, 77, 375-381. https://doi.org/10.1016/j.infrared.2016.06.025
+
+[[9]] FLIR Systems. Toolkit IC2 Dig16 Developer’s Guide 1.01 AGEMA® 550/570, ThermaCAM™ PM5X5 and the ThermoVision™family (en‑US). FLIR Publication number 557344 version B. Available online at http://flir.custhelp.com/app/account/fl_download_manuals (http://support.flir.com/DocDownload/Assets/dl/557344$b.pdf)
 
 ### Author
 
