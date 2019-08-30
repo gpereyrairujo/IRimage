@@ -5,7 +5,6 @@ Results include:
 - calculated temperature data in image format (.tif)
 - calculated temperature data in table format (.txt)
 - false color image (.png)
-- [Summary statistics](https://github.com/gpereyrairujo/IRimage/blob/master/example_images_results/Results.CSV) for all images (.csv)
 
 Img # | Original image | Processed image
 --- | --- | ---
