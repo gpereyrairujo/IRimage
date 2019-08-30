@@ -25,7 +25,6 @@ macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e"
 //    3.3. Save file as text table
 //    3.4. Save file as false-color PNG
 // 4. Close image
-// 5. Save summary statistics as CSV table
 // ---------------------------------------------------------------------------------------------------------
 
 // 1. User input
@@ -206,9 +205,6 @@ macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e"
 // 4. Close image
 		run("Close");
 	}
-	
-// 5. Save summary statistics as CSV table
-	saveAs("Results", dir+"Results.CSV");
 	
 }
 
