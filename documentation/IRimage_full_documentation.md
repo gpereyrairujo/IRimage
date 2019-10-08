@@ -8,7 +8,7 @@ Thermal imaging has many uses in scientific research. In recent years, thermal c
 
 ``IRimage`` follows four steps when processing the images: 1. user input, 2. extraction of camera calibration and environmental parameters from input files and calculation of derived variables, 3. calculation of temperature from raw values, 4. storage of the resulting images. The algorithm used for temperature calculation is detailed in this documentation.
 
-``IRimage`` is published with an open source licence, in order to encourage future improvement, modification and adaptation.
+``IRimage`` is published with an open source license, in order to encourage future improvement, modification and adaptation.
 
 ---
 
