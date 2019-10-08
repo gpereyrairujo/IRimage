@@ -1,0 +1,4 @@
+Thermogramme_infiltrométrie.csv vs. Thermogramme_infiltrométrie.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 5.9248E-6 °C
+Temperature differences above 0.01°C: 0 %

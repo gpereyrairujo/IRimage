@@ -1,4 +1,0 @@
-Thermal_image_of_a_juvenile_grey-headed_flying_fox_during_an_extreme_temperature_event.csv vs. Thermal_image_of_a_juvenile_grey-headed_flying_fox_during_an_extreme_temperature_event.jpg_TEXT.txt
-Excluding pixels with temperature below -40°C: 0 %
-Average temperature difference: 4.5310E-6 °C
-Temperature differences above 0.01°C: 0 %

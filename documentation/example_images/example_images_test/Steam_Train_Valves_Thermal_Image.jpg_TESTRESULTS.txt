@@ -1,0 +1,4 @@
+Steam_Train_Valves_Thermal_Image.csv vs. Steam_Train_Valves_Thermal_Image.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 5.8173E-6 °C
+Temperature differences above 0.01°C: 0 %

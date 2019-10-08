@@ -1,0 +1,118 @@
+20080128191209!IRWaterCooler.csv vs. 20080128191209!IRWaterCooler.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 8.3292E-7 °C
+Temperature differences above 0.01°C: 0 %
+200_deg_neutral.csv vs. 200_deg_neutral.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 9.8557E-6 °C
+Temperature differences above 0.01°C: 0 %
+20120726211114!Thermal_image_of_four_ducks_swimming.csv vs. 20120726211114!Thermal_image_of_four_ducks_swimming.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.00001042 °C
+Temperature differences above 0.01°C: 0 %
+20080128191209!IRWaterCooler.csv vs. 20080128191209!IRWaterCooler.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 8.3292E-7 °C
+Temperature differences above 0.01°C: 0 %
+200_deg_neutral.csv vs. 200_deg_neutral.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 9.8557E-6 °C
+Temperature differences above 0.01°C: 0 %
+20120726211114!Thermal_image_of_four_ducks_swimming.csv vs. 20120726211114!Thermal_image_of_four_ducks_swimming.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.00001042 °C
+Temperature differences above 0.01°C: 0 %
+20080128191209!IRWaterCooler.csv vs. 20080128191209!IRWaterCooler.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 8.3292E-7 °C
+Temperature differences above 0.01°C: 0 %
+200_deg_neutral.csv vs. 200_deg_neutral.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average tempeAqua_Tower_thermal_image.csv vs. Aqua_Tower_thermal_image.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 3.1605 %
+Average temperature difference: 5.6740E-6 °C
+Temperature differences above 0.01°C: 0 %
+Aqua_Tower_thermal_imaging.csv vs. Aqua_Tower_thermal_imaging.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 15.2315 %
+Average temperature difference: 6.8449E-6 °C
+Temperature differences above 0.01°C: 0 %
+BillHotFlashThermography.csv vs. BillHotFlashThermography.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.0000103 °C
+Temperature differences above 0.01°C: 0 %
+Image_thermique_de_l'émission_d'un_radiateur_à_travers_un_mur.csv vs. Image_thermique_de_l'émission_d'un_radiateur_à_travers_un_mur.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.00003885 °C
+Temperature differences above 0.01°C: 0 %
+Infrared_image_of_people_in_the_laboratory.csv vs. Infrared_image_of_people_in_the_laboratory.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 3.4872E-6 °C
+Temperature differences above 0.01°C: 0 %
+IRWater.csv vs. IRWater.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 1.6116E-6 °C
+Temperature differences above 0.01°C: 0 %
+IR_Fussbodenheizung.csv vs. IR_Fussbodenheizung.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.0005117 °C
+Temperature differences above 0.01°C: 0 %
+IR_moving_car.csv vs. IR_moving_car.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.0006072 °C
+Temperature differences above 0.01°C: 0 %
+IR_moving_mercedes.csv vs. IR_moving_mercedes.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.0006097 °C
+Temperature differences above 0.01°C: 0 %
+Kujawy_wiatrak.csv vs. Kujawy_wiatrak.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 10.5859 %
+Average temperature difference: 0.001227 °C
+Temperature differences above 0.01°C: 0 %
+Linear_load.csv vs. Linear_load.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 8.6064E-6 °C
+Temperature differences above 0.01°C: 0 %
+Man_in_water_-_IR_image.csv vs. Man_in_water_-_IR_image.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 1.4413E-6 °C
+Temperature differences above 0.01°C: 0 %
+Solar_halo_thermal.csv vs. Solar_halo_thermal.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 1.0041E-6 °C
+Temperature differences above 0.01°C: 0 %
+Steam_Train_Valves_Thermal_Image.csv vs. Steam_Train_Valves_Thermal_Image.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 5.8173E-6 °C
+Temperature differences above 0.01°C: 0 %
+Termografía.csv vs. Termografía.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 1.3883E-6 °C
+Temperature differences above 0.01°C: 0 %
+Thermal_image_of_a_group_of_grey-headed_flying_foxes_during_an_extreme_temperature_event.csv vs. Thermal_image_of_a_group_of_grey-headed_flying_foxes_during_an_extreme_temperature_event.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.0005554 °C
+Temperature differences above 0.01°C: 0 %
+Thermal_image_of_a_juvenile_grey-headed_flying_fox_during_an_extreme_temperature_event.csv vs. Thermal_image_of_a_juvenile_grey-headed_flying_fox_during_an_extreme_temperature_event.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 4.5310E-6 °C
+Temperature differences above 0.01°C: 0 %
+Thermogramme_infiltrométrie.csv vs. Thermogramme_infiltrométrie.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 5.9248E-6 °C
+Temperature differences above 0.01°C: 0 %
+Thermographie_de_rue.csv vs. Thermographie_de_rue.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.0002416 °C
+Temperature differences above 0.01°C: 0 %
+Thermographie_photovoltaique.csv vs. Thermographie_photovoltaique.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 11.8958 %
+Average temperature difference: 3.6073E-6 °C
+Temperature differences above 0.01°C: 0 %
+Videocamera_Termica.csv vs. Videocamera_Termica.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 3.2298E-6 °C
+Temperature differences above 0.01°C: 0 %
+Windmill_Thermal_Image.csv vs. Windmill_Thermal_Image.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 0.001216 °C
+Temperature differences above 0.01°C: 0 %

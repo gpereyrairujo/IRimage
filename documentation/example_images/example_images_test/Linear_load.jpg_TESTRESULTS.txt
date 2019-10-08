@@ -1,0 +1,4 @@
+Linear_load.csv vs. Linear_load.jpg_TEXT.txt
+Excluding pixels with temperature below -40°C: 0 %
+Average temperature difference: 8.6064E-6 °C
+Temperature differences above 0.01°C: 0 %
