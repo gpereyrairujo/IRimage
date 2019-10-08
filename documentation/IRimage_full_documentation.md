@@ -4,7 +4,7 @@
 
 Thermal imaging has many uses in scientific research. In recent years, thermal cameras have lowered their price, and even affordable (<$300) consumer cameras are now available. These cameras, available as stand-alone devices or smartphone attachments, have the potential to improve access to thermography in many fields of research. These cameras, however, are usually coupled to limited software, aimed at an non-scientific users. This software is usually limited to providing color-coded images and simple temperature measurements of manually-selected points or areas in the image. In many cases, the images are a result of blending visible and thermal images for improved resolution, which limits the extraction of temperature data from them. Moreover, software is usually closed-source, which does not allow the user to know the algorithms used to obtain the temperature measurements and the final image. For a thermal camera (or any sensor) to be useful for research, the user should be able to have control over (or at least information about) the processing steps between the raw sensor data and the final measurement.
 
-``IRimage`` allows researchers to extract raw data and calculate temperature values from images of thermal cameras, making this data available for further processing using widely used scientific image analysis software. This tool was implemented as a macro for the open source software [ImageJ] [[1]] or [FIJI] [[2]], and is based on the open source software [ExifTool] [[3]] to extract raw values from the thermal images for further calculations. It was implemented and tested using FLIR cameras, but the algorithms are potentially adaptable for other cameras for which raw sensor data could be obtained. Earlier versions of this tool were used to benchmark a low cost thermal camera [[4]] and to analyze thermal images of wheat varieties [[5]]. 
+``IRimage`` allows researchers to extract raw data and calculate temperature values from images of thermal cameras, making this data available for further processing using widely used scientific image analysis software. This tool was implemented as a macro for the open source software [ImageJ] [[1]] or [FIJI] [[2]], and is based on the open source software [ExifTool] [[3]] to extract raw values from the thermal images for further calculations. It was implemented and tested using FLIR cameras, but the algorithms are potentially adaptable for other cameras for which raw sensor data could be obtained. Earlier versions of this tool were used to benchmark a low cost thermal camera [[4]] and to analyze thermal images of wheat varieties [[5]].
 
 ``IRimage`` follows four steps when processing the images: 1. user input, 2. extraction of camera calibration and environmental parameters from input files and calculation of derived variables, 3. calculation of temperature from raw values, 4. storage of the resulting images. The algorithm used for temperature calculation is detailed in the documentation.
 
@@ -16,7 +16,7 @@ Thermal imaging has many uses in scientific research. In recent years, thermal c
 
 1. Install [ImageJ](https://imagej.nih.gov/ij/download.html) or [FIJI](https://imagej.net/Fiji/Downloads)
 2. Install [ExifTool](http://owl.phy.queensu.ca/~phil/exiftool/install.html)
-3. Download the macro file ``IRimage.ijm`` from the ``macro`` folder in this repository
+3. Download the macro file ``IRimage.ijm`` from the ``IRimage`` folder in this repository
 4. Save this file in the ``ImageJ.app/macros/toolsets`` folder (or the ``Fiji.app/macros/toolsets`` folder if you installed FIJI)
 
 ### Usage
@@ -61,7 +61,7 @@ The first term is the equivalent digital signal originating from the target obje
 
 #### Estimation of atmospheric transmissivity
 
-There are many different models available to estimate atmospheric transmissivity. For short distances, simple models that take into account the amount of water in the air can provide adequate estimates. For long distances (e.g. for infrared cameras used in satellites),  more sophisticated models which take into account not only water but also carbon dioxide, ozone, and other moleculas, and other atmospheric factors such as scattering, e.g.: the method by Więcek; the Pasman - Larmore tables, which take into account not only water content, but also carbon dioxide (absortion at λ=4.3µm) concentration in the air, and can be used for different wavelengths [[6]]; more sophisticated models which take into account many different atmospheric factors, which are used for corrections in long distance measurements (e.g. from satellites) such as the LOWTRAN model [[8]]. 
+There are many different models available to estimate atmospheric transmissivity. For short distances, simple models that take into account the amount of water in the air can provide adequate estimates. For long distances (e.g. for infrared cameras used in satellites),  more sophisticated models which take into account not only water but also carbon dioxide, ozone, and other moleculas, and other atmospheric factors such as scattering, e.g.: the method by Więcek; the Pasman - Larmore tables, which take into account not only water content, but also carbon dioxide (absortion at λ=4.3µm) concentration in the air, and can be used for different wavelengths [[6]]; more sophisticated models which take into account many different atmospheric factors, which are used for corrections in long distance measurements (e.g. from satellites) such as the LOWTRAN model [[8]].
 
 In this paper, the method used in FLIR Systems’ cameras was adopted [[9]], which estimates atmospheric transmissivity (![tau](https://latex.codecogs.com/svg.latex?\inline&space;\tau)) based on air water content (![H](https://latex.codecogs.com/svg.latex?\inline&space;H), calculated from air temperature, ![t](https://latex.codecogs.com/svg.latex?\inline&space;t), and relative humidity, ![RH](https://latex.codecogs.com/svg.latex?\inline&space;RH)), and the distance between the object and the sensor (![d](https://latex.codecogs.com/svg.latex?\inline&space;d)):
 
@@ -99,7 +99,7 @@ Finally, in order to calculate object temperature:
 
 ### Implementation
 
-The image processing steps are implemented as a macro for the [ImageJ] software [[1]], thus allowing simple modification and adaptation to other scientific image processing pipelines.  The method relies on having access to the raw sensor data obtained from the camera. In the case of FLIR cameras, this data is stored in the EXIF data in the “radiometric jpg” files, together with the camera-specific and user-set parameters needed to calculate temperature. This data can be extracted through the use of the [ExifTool] software [[3]]. 
+The image processing steps are implemented as a macro for the [ImageJ] software [[1]], thus allowing simple modification and adaptation to other scientific image processing pipelines.  The method relies on having access to the raw sensor data obtained from the camera. In the case of FLIR cameras, this data is stored in the EXIF data in the “radiometric jpg” files, together with the camera-specific and user-set parameters needed to calculate temperature. This data can be extracted through the use of the [ExifTool] software [[3]].
 
 The algorithm consists of these steps:
 
@@ -113,7 +113,7 @@ The macro then processes all images in JPG format within the user-selected folde
 
 Parameter / Variable | Variable name in macro | Symbol used in equations | Eq. | EXIF tag name in FLIR JPG file
 --- | --- | --- | --- | ---
-_Calibration / camera-specific parameters_ | 
+_Calibration / camera-specific parameters_ |
 Raw Thermal Image Type (PNG or TIFF) | imageType |  |  | Raw Thermal Image Type
 Camera Model | cameraModel |  |  | Camera Model
 Sensor gain | sensorG | ![G](https://latex.codecogs.com/svg.latex?\inline&space;G) | 1 | Planck R1
@@ -121,13 +121,13 @@ Sensor offset | sensorO | ![O](https://latex.codecogs.com/svg.latex?\inline&spac
 Sensor calibration parameter B | sensorB | ![B](https://latex.codecogs.com/svg.latex?\inline&space;B) | 4 | Planck B
 Sensor calibration parameter F * | sensorF |  |  | Planck F
 Sensor calibration parameter R | sensorR | ![R](https://latex.codecogs.com/svg.latex?\inline&space;R) | 4 | Planck R2
-_Atmospheric parameters_ | 
+_Atmospheric parameters_ |
 Atmospheric transmissivity parameter 1 | atmAlpha1 | ![alpha1](https://latex.codecogs.com/svg.latex?\inline&space;\alpha_{1}) | 7 | Atmospheric Trans Alpha 1
 Atmospheric transmissivity parameter 2 | atmAlpha2 | ![alpha2](https://latex.codecogs.com/svg.latex?\inline&space;\alpha_{2}) | 7 | Atmospheric Trans Alpha 2
 Atmospheric transmissivity parameter 1 | atmBeta1 | ![beta1](https://latex.codecogs.com/svg.latex?\inline&space;\beta_{1}) | 7 | Atmospheric Trans Beta 1
 Atmospheric transmissivity parameter 2 | atmBeta2 | ![beta2](https://latex.codecogs.com/svg.latex?\inline&space;\beta_{2}) | 7 | Atmospheric Trans Beta 2
 Atmospheric transmissivity parameter X | atmX | ![X](https://latex.codecogs.com/svg.latex?\inline&space;X) | 7 | Atmospheric Trans X
-User-selected parameters |  |  |  | 
+User-selected parameters |  |  |  |
 Apparent reflected temperature (°C) | appReflTemp_C |  |  | Reflected Apparent Temperature
 Air temperature (°C) | airTemp_C | ![t](https://latex.codecogs.com/svg.latex?\inline&space;t) | 6 | Atmospheric Temperature
 Object emissivity | objEmissivity | ![epsilon](https://latex.codecogs.com/svg.latex?\inline&space;\varepsilon) | 4 | Emissivity
@@ -142,7 +142,7 @@ The next step is the calculation of variables derived from these parameters, inc
 
 Parameter / variable | Variable name in macro | Symbol used in equations | Eq.
 --- | --- | --- | ---
-Raw image byte order / endianness | byteOrderLittleEndian |  | 
+Raw image byte order / endianness | byteOrderLittleEndian |  |
 Aparent reflected temperature (K) | appReflTemp_K | ![Tapp.refl](https://latex.codecogs.com/svg.latex?\inline&space;T_{app.refl}) | 11
 Air temperature (K) | airTemp_K | ![Tatm](https://latex.codecogs.com/svg.latex?\inline&space;T_{atm}) | 9
 Air water content | airWaterContent | ![H](https://latex.codecogs.com/svg.latex?\inline&space;H) | 7
@@ -152,13 +152,13 @@ Raw signal from reflected radiation (DN) | reflRawSignal_DN | ![Srefl](https://l
 
 #### Temperature calculation
 
-First, using the exiftool software, raw data is extracted in PNG format. The resulting image containing the raw sensor data is then opened within the ImageJ software, and each pixel containing the digital signal from the sensor is processed sequencially. First, the object signal is estimated using Eq. 12, and then the temperature value is calculated using Eq. 13. 
+First, using the exiftool software, raw data is extracted in PNG format. The resulting image containing the raw sensor data is then opened within the ImageJ software, and each pixel containing the digital signal from the sensor is processed sequencially. First, the object signal is estimated using Eq. 12, and then the temperature value is calculated using Eq. 13.
 
 Parameter / Variable | Variable name in macro | Symbol used in equations | Eq. | EXIF tag name in FLIR JPG file
 --- | --- | --- | --- | ---
 Raw sensor signal (DN) * | rawSignal_DN | ![S](https://latex.codecogs.com/svg.latex?\inline&space;S) | 1 | Raw Thermal Image
-Raw signal from object (DN) | objRawSignal_DN | ![Sobj](https://latex.codecogs.com/svg.latex?\inline&space;S_{obj}) | 5 | 
-Object temperature (°C) | objTemp_C | ![Tobj](https://latex.codecogs.com/svg.latex?\inline&space;T_{obj}) | 8 | 
+Raw signal from object (DN) | objRawSignal_DN | ![Sobj](https://latex.codecogs.com/svg.latex?\inline&space;S_{obj}) | 5 |
+Object temperature (°C) | objTemp_C | ![Tobj](https://latex.codecogs.com/svg.latex?\inline&space;T_{obj}) | 8 |
 
 _* All raw sensor signal values are extracted as a PNG format image, then each pixel is processed sequencially, storing each value in the rawSignal_DN variable._
 
@@ -188,9 +188,9 @@ This work was largely based on the methods described by user 'tomas123' in the [
 [9]: http://support.flir.com/DocDownload/Assets/dl/557344$b.pdf
 [ExifTool Forum]: http://u88.n24.queensu.ca/exiftool/forum/index.php/topic,4898.0.html
 
-[[1]] Rueden, C. T.; Schindelin, J. & Hiner, M. C. et al. (2017). ImageJ2: ImageJ for the next generation of scientific image data. BMC Bioinformatics 18:529, PMID 29187165, https://doi.org/10.1186/s12859-017-1934-z 
+[[1]] Rueden, C. T.; Schindelin, J. & Hiner, M. C. et al. (2017). ImageJ2: ImageJ for the next generation of scientific image data. BMC Bioinformatics 18:529, PMID 29187165, https://doi.org/10.1186/s12859-017-1934-z
 
-[[2]] Schindelin, J.; Arganda-Carreras, I. & Frise, E. et al. (2012). Fiji: an open-source platform for biological-image analysis. Nature methods 9(7): 676-682, PMID 22743772, https://doi.org/10.1038/nmeth.2019 
+[[2]] Schindelin, J.; Arganda-Carreras, I. & Frise, E. et al. (2012). Fiji: an open-source platform for biological-image analysis. Nature methods 9(7): 676-682, PMID 22743772, https://doi.org/10.1038/nmeth.2019
 
 [[3]] Harvey, P. (2003). ExifTool. Software package available at http://owl.phy.queensu.ca/~phil/exiftool/
 
