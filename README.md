@@ -30,7 +30,7 @@
 ### Testing the code
 If you modify the macro code, you can check if it still working properly by using the provided test image, and comparing the results with the temperature values obtained with the FLIR Tools software. This can be done by following these steps:
 
-1. Download the contents of the  [``IRimage/test``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage/test) folder in this repository (the original JPG test image and a CSV file with temperature values obtained with the FLIR Tools software)
+1. Download the contents of the  [``IRimage/test``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage/test) folder in this repository. It includes two files: the JPG test image and a CSV file with temperature values obtained with the FLIR Tools software
 2. Run your ``IRimage`` macro on this folder (using the parameters stored in the test image)
 3. Download the macro file [``IRimage_test.ijm``](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage_test.ijm) from the [``IRimage``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage) folder in this repository
 4. Go to ``Plugins|Macros|Run...`` on the FIJI/ImageJ menu and select the location of the downloaded ``IRimage_test.ijm`` file to run the test macro, selecting the dowloaded ``test`` folder
