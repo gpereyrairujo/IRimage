@@ -151,7 +151,7 @@ Object emissivity | objEmissivity | ![epsilon](https://latex.codecogs.com/svg.la
 Air relative humidity | airRelHumidity_perc | ![RH](https://latex.codecogs.com/svg.latex?\inline&space;RH) | 6 | Relative Humidity
 Object distance from camera | objDistance_m | ![d](https://latex.codecogs.com/svg.latex?\inline&space;d) | 7 | Object Distance
 
-_* This parameter is included in the JPG EXIF tags but it is always equal to 1, and is equivalent to the value of 1 in the term ![eBT-1](https://latex.codecogs.com/svg.latex?\inline&space;(e^{\frac{B}{T}}-1)) in Eq. 4_
+_* This parameter is included in the JPG EXIF tags but it is (usually) equal to 1, and is equivalent to the value of 1 in the term ![eBT-1](https://latex.codecogs.com/svg.latex?\inline&space;(e^{\frac{B}{T}}-1)) in Eq. 4_
 
 #### Calculation of derived variables
 
@@ -166,6 +166,8 @@ Air water content | airWaterContent | ![H](https://latex.codecogs.com/svg.latex?
 Atmospheric transmissivity | atmTau | ![tau](https://latex.codecogs.com/svg.latex?\inline&space;\tau) | 5
 Raw signal from atmosphere (DN) | atmRawSignal_DN | ![Satm](https://latex.codecogs.com/svg.latex?\inline&space;S_{atm}) | 5
 Raw signal from reflected radiation (DN) | reflRawSignal_DN | ![Srefl](https://latex.codecogs.com/svg.latex?\inline&space;S_{refl}) | 5
+
+The byte order (endianness) of the raw image is determined from the image type (PNG or TIFF). This works in almost all cases, but it has been found that this rule does not hold for some (at least 3) camera models. In those cases, an exception to this rule is included in the code.
 
 #### Temperature calculation
 
