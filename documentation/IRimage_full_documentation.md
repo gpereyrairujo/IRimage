@@ -189,7 +189,7 @@ The resulting image with temperature values for each pixel is stored in a separa
 
 The macro was evaluated by comparing the resulting temperature values with those exported manually using the [FLIR Tools] software (FLIR Systems, Inc., USA, [version 5.13.18031.2002])
 
-26 images taken with 15 different FLIR camera models were downloaded from [Wikimedia Commons] (all those available as unmodified jpg files on 16 Jun 2019 from https://commons.wikimedia.org/wiki/Category:Photos_taken_with_FLIR_Systems. All the images were processed using ``IRimage``, and also the temperature values were manually exported for each file using FLIR Tools.
+26 images taken with 15 different FLIR camera models were downloaded from [Wikimedia Commons] (all those available as unmodified jpg files on 16 Jun 2019 from https://commons.wikimedia.org/wiki/Category:Photos_taken_with_FLIR_Systems (more thermal images available at http://owl.phy.queensu.ca/~phil/exiftool/FLIR.tar.gz). All the images were processed using ``IRimage``, and also the temperature values were manually exported for each file using FLIR Tools.
 
 A [test macro](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage_test.ijm) was used to automatically compare the results for each image. Temperature values obtained with ``IRimage`` were in all cases within 0.01°C of those obtained with FLIR Tools, with an average difference of 0.0002°C.
 
