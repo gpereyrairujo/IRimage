@@ -15,7 +15,7 @@
 1. Install [ImageJ](https://imagej.nih.gov/ij/download.html) or [FIJI](https://imagej.net/Fiji/Downloads)
 2. Install [ExifTool](http://owl.phy.queensu.ca/~phil/exiftool/install.html)
 3. Download the macro file [``IRimage.ijm``](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage.ijm) from the [``IRimage``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage) folder in this repository
-4. Save this file in the ``ImageJ.app/macros/toolsets`` folder (or the ``Fiji.app/macros/toolsets`` folder if you installed FIJI) in your computer
+4. Save this file in the ``ImageJ.app/macros/toolsets`` folder (or the ``Fiji.app/macros/toolsets`` folder if you installed FIJI) in your computer (create the folder if it does not exist yet)
 
 ### Usage
 
@@ -33,8 +33,10 @@ If you modify the macro code, you can check if it still working properly by usin
 1. Download the contents of the  [``IRimage/test``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage/test) folder in this repository. It includes two files: the JPG test image and a CSV file with temperature values obtained with the FLIR Tools software
 2. Run your ``IRimage`` macro on this folder (using the parameters stored in the test image)
 3. Download the macro file [``IRimage_test.ijm``](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage_test.ijm) from the [``IRimage``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage) folder in this repository
-4. Go to ``Plugins|Macros|Run...`` on the FIJI/ImageJ menu and select the location of the downloaded ``IRimage_test.ijm`` file to run the test macro, selecting the dowloaded ``test`` folder
-6. Open the resulting ``test_image.jpg_TESTRESULTS.txt`` file, and check if the 'Temperature differences above 0.01°C' value is 0%. You can also compare the resulting files and images with those in the [``IRimage/test_results``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage/test_results) folder in this repository.
+4. Save this file in the ``ImageJ.app/macros/toolsets`` folder (or the ``Fiji.app/macros/toolsets`` folder if you installed FIJI) in your computer
+5. Restart ImageJ/FIJI and click on the ``>>`` button ("More tools") at the end of the toolbar, and then click on 'IRimage_test'
+6. An 'IRtest' button should appear in the toolbar. Click on it to run the test macro, selecting the dowloaded ``test`` folder
+7. Open the resulting ``test_image.jpg_TESTRESULTS.txt`` file, and check if the 'Temperature differences above 0.01°C' value is 0%. You can also compare the resulting files and images with those in the [``IRimage/test_results``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage/test_results) folder in this repository.
 
 ### Contributing
 Contributions are welcome! There are at least two ways to contribute:
