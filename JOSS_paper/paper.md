@@ -14,7 +14,7 @@ affiliations:
    index: 1
  - name: Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET)
    index: 2
-date: 8 October 2019
+date: 9 October 2019
 bibliography: paper.bib
 ---
 
