@@ -48,15 +48,16 @@ macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e"
 // 2.1. Find JPG files
 		isjpg=false;
 		do {
-			imageName=list[i];
-			if( endsWith(imageName,"jpg") ) isjpg=true;
-			if( endsWith(imageName,"jpeg") ) isjpg=true;
-			if( endsWith(imageName,"JPG") ) isjpg=true;
-			if( endsWith(imageName,"JPEG") ) isjpg=true;
+			imageNameExt=list[i];
+			if( endsWith(imageNameExt,"jpg") ) isjpg=true;
+			if( endsWith(imageNameExt,"jpeg") ) isjpg=true;
+			if( endsWith(imageNameExt,"JPG") ) isjpg=true;
+			if( endsWith(imageNameExt,"JPEG") ) isjpg=true;
 			if(isjpg==false) i++;
 			if(i>=list.length) exit;
 		} while (isjpg==false); 
-		path = dir+imageName;
+		imageName = substring(imageNameExt, 0, lastIndexOf(imageNameExt, "."));
+		path = dir+imageNameExt;
 		showProgress(i, list.length);
 
 // 2.2. Extract parameters
@@ -157,14 +158,34 @@ macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e"
 			reflRawSignal_DN = sensorG/(sensorR*(exp(sensorB/(appReflTemp_K))-sensorF))-sensorO;
 		}
 
-// 2.5. Extract raw data to a PNG image
-		pathRAW = substring(path, 0, lastIndexOf(path, "."));
-		pathRAW = pathRAW+"_RAW.PNG";
-		output = exec("exiftool", path, "-RawThermalImage", "-b", "-w", "%d%f_RAW.PNG");
+// 2.45 Create output folders
+
+		dirRAW_PNG = dir+"RAW_PNG"+File.separator;
+		dirRAW_TIFF = dir+"RAW_TIFF"+File.separator;
+		dirTEXT = dir+"TEXT"+File.separator;
+		dirCOLOR = dir+"COLOR"+File.separator;
+		dirTEMP = dir+"TEMP"+File.separator;
+		if (!File.exists(dirRAW_PNG)) File.makeDirectory(dirRAW_PNG); 
+		if (!File.exists(dirRAW_TIFF)) File.makeDirectory(dirRAW_TIFF); 
+		if (!File.exists(dirTEXT)) File.makeDirectory(dirTEXT); 
+		if (!File.exists(dirCOLOR)) File.makeDirectory(dirCOLOR); 
+		if (!File.exists(dirTEMP)) File.makeDirectory(dirTEMP); 
+		pathRAW_PNG = dirRAW_PNG+imageName+".PNG";
+		pathRAW_TIFF = dirRAW_TIFF+imageName+".TIF";
+		pathTEXT = dirTEXT+imageName+".TXT";
+		pathCOLOR = dirCOLOR+imageName+".PNG";
+		pathTEMP = dirTEMP+imageName+".TIF";
+		
+
+// 2.5. Extract raw data to PNG and TIFF (16-bit) images
+
+		output = exec("exiftool", path, "-RawThermalImage", "-b", "-w", dirRAW_PNG+"%f.PNG");
+        IJ.redirectErrorMessages();
+        open(pathRAW_PNG);
+		saveAs("tiff", pathRAW_TIFF);
 
 // 2.6. Extract raw signal data from PNG image
-        IJ.redirectErrorMessages();
-        open(pathRAW);
+
         if (nImages>0) {
 			run("32-bit");
 			w = getWidth;
@@ -186,7 +207,7 @@ macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e"
 // 3. Outputs
 // 3.1. Print image statistics to the Results window
 		getStatistics(area, mean, min, max, std);
-		setResult("Image", nResults, imageName);
+		setResult("Image", nResults, imageNameExt);
 		setResult("Area", nResults-1, area);
 		setResult("Mean", nResults-1, mean);
 		setResult("Min", nResults-1, min);
@@ -195,15 +216,22 @@ macro "IRimage Action Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e"
 		setResult("CamModel", nResults-1, cameraModel);
 
 // 3.2. Save file as TIFF
-		saveAs("tiff", path+"_TEMP");
+		saveAs("tiff", pathTEMP);
 
 // 3.3. Save file as text table
-		saveAs("Text Image", path+"_TEXT");
+		saveAs("Text Image", pathTEXT);
 
 // 3.4. Save file as false-color PNG
-		run("Fire");
-		saveAs("png", path+"_COLOR");
+		run("royal");
+//		run("Fire");
+		saveAs("png", pathCOLOR);
 
+// 3.5 Copy original EXIF tags to output images
+
+		//exiftool -tagsFromFile pruebajpg/%f.jpg -ext tif pruebatiff
+		output = exec("exiftool", "-tagsFromFile", dir+"%f.jpg", "-overwrite_original", "-ext", "tif", dirRAW_TIFF);
+		output = exec("exiftool", "-tagsFromFile", dir+"%f.jpg", "-overwrite_original", "-ext", "tif", dirTEMP);
+		
 // 4. Close image
 		run("Close");
 	}
