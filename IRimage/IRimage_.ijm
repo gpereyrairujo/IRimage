@@ -9,7 +9,7 @@
 // Author: Gustavo Pereyra Irujo - pereyrairujo.gustavo@conicet.gov.ar
 // Licensed under GNU AFFERO GENERAL PUBLIC LICENSE Version 3
 // https://github.com/gpereyrairujo/IRimage
-//
+// 
 
 
 
@@ -20,7 +20,8 @@
 // Menu icon
 
 var menuItems = newArray("Process", "Color", "Measure", "Test");
-var lCmds = newMenu("IRimage Menu Tool", menuItems);
+
+var lCmds = newMenu("IRimage Menu Tool", menuItems);
   
 macro "IRimage Menu Tool - C209T0809IT3809RCb03T1f06iT3f06mT8f06aTbf06gTff06e" {
 	cmd = getArgument();
