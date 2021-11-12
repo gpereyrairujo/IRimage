@@ -1,10 +1,8 @@
-## ``IRimage`` Open source software for processing images from consumer thermal cameras
+## ``IRimage`` Open source software for processing images from infrared thermal cameras
 
 ### Summary
 
-``IRimage`` is able to extract raw data and calculate temperature values from images of thermal cameras, making this data available for further processing using widely used scientific image analysis software. This tool was implemented as a macro for the open source software [ImageJ] or [FIJI], and is based on the open source software [ExifTool] to extract raw values from the thermal images for further calculations. It was implemented and tested using FLIR cameras, but the algorithms are potentially adaptable for other cameras for which raw sensor data could be obtained.  It has been tested with images from more than 15 camera models, and calculated temperatures were in all cases within 0.01°C (0.0002°C on average) of those obtained with the manufacturer’s software.
-
-``IRimage`` follows four steps when processing the images: 1. user input, 2. extraction of camera calibration and environmental parameters from input files and calculation of derived variables, 3. calculation of temperature from raw values, 4. storage of the resulting images. The algorithm used for temperature calculation is detailed in the [``IRimage documentation``](https://github.com/gpereyrairujo/IRimage/blob/master/documentation/IRimage_full_documentation.md).
+``IRimage`` processes thermal images, extracting raw data and calculating temperature values with an open and fully documented algorithm, making this data available for further processing using image analysis software. It also allows to make reproducible measurements of the temperature of objects in series of images, and produce visual outputs (images and videos) suitable for scientific reporting. ``IRimage`` is implemented in a scripting language of the scientific image analysis software ImageJ, allowing its use through a graphical user interface and also allowing for an easy modification or expansion of its functionality. ``IRimage`` has been validated against standard software for 15 camera models of the most widely used brand. ``IRimage``'s functionalities make it better suited for research purposes than many currently available alternatives, and could contribute to making affordable consumer-grade thermal cameras useful for reproducible research.
 
 ``IRimage`` is open source, in order to allow users to know the algorithms used to obtain the temperature values, as well as to encourage future improvement, modification and adaptation.
 
@@ -14,29 +12,20 @@
 
 1. Install [ImageJ](https://imagej.nih.gov/ij/download.html) or [FIJI](https://imagej.net/Fiji/Downloads)
 2. Install [ExifTool](http://owl.phy.queensu.ca/~phil/exiftool/install.html)
-3. Download the macro file [``IRimage.ijm``](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage.ijm) from the [``IRimage``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage) folder in this repository
-4. Save this file in the ``ImageJ.app/macros/toolsets`` folder (or the ``Fiji.app/macros/toolsets`` folder if you installed FIJI) in your computer (create the folder if it does not exist yet)
+3. Download the source code file [``IRimage.ijm``](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage.ijm) from the [``IRimage``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage) folder in this repository
+4. Create a folder named ``IRimage`` within the ``ImageJ.app/plugins`` folder (or the ``Fiji.app/plugins`` folder if you installed FIJI) and save the ``IRimage.ijm`` file in this folder
 
-### Usage
+### Basic usage
 
 1. Open ImageJ (or FIJI)
 2. Click on the ``>>`` button ("More tools") at the end of the toolbar, and click on 'IRimage'
-3. An 'IRimage' button should appear in the toolbar. Click on it to run the macro
-4. Select the folder with the original JPG images from the thermal camera
-5. Choose whether you want to set global parameters for all the images, or use the parameters stored in each file
-6. If the first option was selected, modify the default parameter values and click OK
-7. The resulting images will be stored in the same folder
+3. An 'IRimage' button should appear in the toolbar. A menu is shown when this button is clicked.
+4. Select the 'Process' function and select the folder with the original JPG images from the thermal camera
+5. Choose whether you want to use the parameters stored in each file, to manually set global parameters for all the images, or to use parameters previously defined in a csv file
+6. If the second option was selected, modify the default parameter values and click OK
+7. The resulting images will be stored in different subfolders of the same input folder
 
-### Testing the code
-If you modify the macro code, you can check if it still working properly by using the provided test image, and comparing the results with the temperature values obtained with the FLIR Tools software. This can be done by following these steps:
-
-1. Download the contents of the  [``IRimage/test``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage/test) folder in this repository. It includes two files: the JPG test image and a CSV file with temperature values obtained with the FLIR Tools software
-2. Run your ``IRimage`` macro on this folder (using the parameters stored in the test image)
-3. Download the macro file [``IRimage_test.ijm``](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage_test.ijm) from the [``IRimage``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage) folder in this repository
-4. Save this file in the ``ImageJ.app/macros/toolsets`` folder (or the ``Fiji.app/macros/toolsets`` folder if you installed FIJI) in your computer
-5. Restart ImageJ/FIJI and click on the ``>>`` button ("More tools") at the end of the toolbar, and then click on 'IRimage_test'
-6. An 'IRtest' button should appear in the toolbar. Click on it to run the test macro, selecting the dowloaded ``test`` folder
-7. Open the resulting ``test_image.jpg_TESTRESULTS.txt`` file, and check if the 'Temperature differences above 0.01°C' value is 0%. You can also compare the resulting files and images with those in the [``IRimage/test_results``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage/test_results) folder in this repository.
+More details about IRimage's implementation, functions and usage are included in the IRimage paper.
 
 ### Contributing
 Contributions are welcome! There are at least two ways to contribute:
@@ -58,14 +47,9 @@ Documentation licensed [CC-BY-SA](https://creativecommons.org/licenses/by/2.0/)
 If this macro contributes to a project or publication, please acknowledge this by citing as:
 
 ```
-Pereyra Irujo, G. (2019). IRimage. Open source software for processing images from consumer thermal cameras. Available at: https://github.com/gpereyrairujo/IRimage/
+Pereyra Irujo, G. (2019). IRimage. Open source software for processing images from infrared thermal cameras. Available at: https://github.com/gpereyrairujo/IRimage/
 ```
 
 ### Contact
 
 Gustavo Pereyra Irujo - gpereyrairujo.gustavo@conicet.gov.ar
-
-[ImageJ]: https://imagej.nih.gov/ij/index.html
-[FIJI]: https://imagej.net/Fiji
-[ExifTool]: http://owl.phy.queensu.ca/~phil/exiftool/
-[ExifTool Forum]: http://u88.n24.queensu.ca/exiftool/forum/index.php/topic,4898.0.html
