@@ -24,7 +24,7 @@
 6. If the second option was selected, modify the default parameter values and click OK
 7. The resulting images and data will be stored in subfolders within the input folder
 
-More details about IRimage's implementation, functions and usage are included in the IRimage paper.
+More details about IRimage's implementation, functions and usage are included in the IRimage paper (soon to be published...).
 
 ### Contributing
 Contributions are welcome! There are at least two ways to contribute:
