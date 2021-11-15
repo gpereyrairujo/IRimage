@@ -1,4 +1,0 @@
-BillHotFlashThermography.csv vs. BillHotFlashThermography.jpg_TEXT.txt
-Excluding pixels with temperature below -40°C: 0 %
-Average temperature difference: 0.0000103 °C
-Temperature differences above 0.01°C: 0 %

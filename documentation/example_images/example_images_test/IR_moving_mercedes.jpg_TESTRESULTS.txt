@@ -1,4 +1,0 @@
-IR_moving_mercedes.csv vs. IR_moving_mercedes.jpg_TEXT.txt
-Excluding pixels with temperature below -40°C: 0 %
-Average temperature difference: 0.0006097 °C
-Temperature differences above 0.01°C: 0 %

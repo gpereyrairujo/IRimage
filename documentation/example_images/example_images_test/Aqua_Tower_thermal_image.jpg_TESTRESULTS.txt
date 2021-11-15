@@ -1,4 +1,0 @@
-Aqua_Tower_thermal_image.csv vs. Aqua_Tower_thermal_image.jpg_TEXT.txt
-Excluding pixels with temperature below -40°C: 3.1605 %
-Average temperature difference: 5.6740E-6 °C
-Temperature differences above 0.01°C: 0 %

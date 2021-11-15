@@ -2,7 +2,11 @@
 
 ### Summary
 
+<<<<<<< Updated upstream
 ``IRimage`` processes thermal images, extracting raw data and calculating temperature values with an open and fully documented algorithm, making this data available for further processing using image analysis software. It also allows to make reproducible measurements of the temperature of objects in series of images, and produce visual outputs (images and videos) suitable for scientific reporting. ``IRimage`` is implemented in a scripting language of the scientific image analysis software ImageJ, allowing its use through a graphical user interface and also allowing for an easy modification or expansion of its functionality. ``IRimage`` has been validated against standard software for 15 camera models of the most widely used brand. ``IRimage``'s functionalities make it better suited for research purposes than many currently available alternatives, and could contribute to making affordable consumer-grade thermal cameras useful for reproducible research.
+=======
+``IRimage`` aims at increasing throughput, accuracy and reproducibility of results obtained from thermal images, especially those produced with affordable, consumer-oriented cameras. IRimage efficiently processes hundreds of thermal images, extracting raw data and calculating temperature values with an open and fully documented algorithm, making this data available for further processing using image analysis software. It also allows to make reproducible measurements of the temperature of objects in series of images, and produce visual outputs (images and videos) suitable for scientific reporting. IRimage is implemented in a scripting language of the scientific image analysis software ImageJ, allowing its use through a graphical user interface and also allowing for an easy modification or expansion of its functionality. IRimage was validated against standard software for 15 camera models of the most widely used brand. IRimage's functionalities make it better suited for research purposes than many currently available alternatives, and could contribute to making affordable consumer-grade thermal cameras useful for reproducible research.
+>>>>>>> Stashed changes
 
 ``IRimage`` is open source, in order to allow users to know the algorithms used to obtain the temperature values, as well as to encourage future improvement, modification and adaptation.
 
@@ -10,20 +14,35 @@
 
 ### Installation
 
+<<<<<<< Updated upstream
 1. Install [ImageJ](https://imagej.nih.gov/ij/download.html) or [FIJI](https://imagej.net/Fiji/Downloads)
 2. Install [ExifTool](http://owl.phy.queensu.ca/~phil/exiftool/install.html)
 3. Download the source code file [``IRimage.ijm``](https://github.com/gpereyrairujo/IRimage/blob/master/IRimage/IRimage.ijm) from the [``IRimage``](https://github.com/gpereyrairujo/IRimage/tree/master/IRimage) folder in this repository
 4. Create a folder named ``IRimage`` within the ``ImageJ.app/plugins`` folder (or the ``Fiji.app/plugins`` folder if you installed FIJI) and save the ``IRimage.ijm`` file in this folder
+=======
+1. Install [ImageJ](https://imagej.nih.gov/ij/download.html) or [FIJI](https://imagej.net/Fiji/Downloads) - take note of the location where it is installed, since you will need it later
+2. Download the complete [IRimage repository](https://github.com/gpereyrairujo/IRimage) using the 'Download ZIP' option in the green 'Code' button, save the ``IRimage-main.zip`` file and extract its contents 
+3. Find the ``IRimage`` folder (not the ``IRimage-main`` folder) and copy it to the ``ImageJ.app/plugins`` folder (or the ``Fiji.app/plugins`` folder if you installed FIJI) in your computer
+>>>>>>> Stashed changes
 
 ### Basic usage
 
 1. Open ImageJ (or FIJI)
+<<<<<<< Updated upstream
 2. Click on the ``>>`` button ("More tools") at the end of the toolbar, and click on 'IRimage'
 3. An 'IRimage' button should appear in the toolbar. A menu is shown when this button is clicked.
 4. Select the 'Process' function and select the folder with the original JPG images from the thermal camera
 5. Choose whether you want to use the parameters stored in each file, to manually set global parameters for all the images, or to use parameters previously defined in a csv file
 6. If the second option was selected, modify the default parameter values and click OK
 7. The resulting images will be stored in different subfolders of the same input folder
+=======
+2. Open the 'Plugins' menu and you will find the 'IRimage' submenu
+3. Select the 'Process' optino first
+4. Select the folder with the original JPG images from the thermal camera
+5. Choose whether you want to use the parameters stored in each file, set global parameters for all the images, or use previously defined parameters
+6. If the second option was selected, modify the default parameter values and click OK
+7. The resulting images will be stored in subfolders within the input folder
+>>>>>>> Stashed changes
 
 More details about IRimage's implementation, functions and usage are included in the IRimage paper.
 
@@ -47,7 +66,11 @@ Documentation licensed [CC-BY-SA](https://creativecommons.org/licenses/by/2.0/)
 If this macro contributes to a project or publication, please acknowledge this by citing as:
 
 ```
+<<<<<<< Updated upstream
 Pereyra Irujo, G. (2019). IRimage. Open source software for processing images from infrared thermal cameras. Available at: https://github.com/gpereyrairujo/IRimage/
+=======
+Pereyra Irujo, G. (2021). IRimage. Open source software for processing images from consumer thermal cameras. Available at: https://github.com/gpereyrairujo/IRimage/
+>>>>>>> Stashed changes
 ```
 
 ### Contact
