@@ -38,7 +38,7 @@ For any type of contribution, please follow the [code of conduct](CODE_OF_CONDUC
 
 ### License
 
-Software licensed [GNU Affero General Public License v3.0](https://github.com/gpereyrairujo/IRimage/blob/master/LICENSE)  
+Software licensed [GNU Affero General Public License v3.0](https://github.com/gpereyrairujo/IRimage/blob/main/LICENSE)  
 Documentation and images licensed [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ### How to cite
