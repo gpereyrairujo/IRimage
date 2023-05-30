@@ -25,7 +25,7 @@
 6. If the second option was selected, modify the default parameter values and click OK
 7. The resulting images and data will be stored in subfolders within the input folder
 
-More details about IRimage's implementation, functions and usage are included in the IRimage paper (soon to be published...). Data and code for IRimage's validation and the example use case included in the paper are available at https://github.com/gpereyrairujo/IRimage_paper.
+More details about IRimage's implementation, functions and usage are included in the [IRimage paper](https://doi.org/10.7717/peerj-cs.977). Data and code for IRimage's validation and the example use case included in the paper are available at https://github.com/gpereyrairujo/IRimage_paper.
 
 ### Contributing
 Contributions are welcome! There are at least two ways to contribute:
