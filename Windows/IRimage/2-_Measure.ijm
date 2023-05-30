@@ -39,6 +39,10 @@ macro "IR-image-measure" {
 	dirRESULTS = dir+"results"+File.separator;
 	dirIRimage = getDir("plugins") + "IRimage" + File.separator;
 	dirPalette = dirIRimage + "palette" + File.separator;
+	// Exiftool path in Windows version (Exiftool portable version included with IRimage)
+	dirExifTool = dirIRimage + "exiftool" + File.separator;
+	// Exiftool path in MacOS version (Exiftool installed separately)
+	// dirExifTool = "/usr/local/bin/";
 	list = getFileList(dirTEMP);
 	
 // 2. Ask for options
@@ -166,7 +170,7 @@ macro "IR-image-measure" {
 		setSlice(j);
 		imageName = getInfo("slice.label");
 		pathJPG = dir + imageName + ".jpg";
-		parameters = exec("exiftool", "-DateTimeOriginal", pathJPG);
+		parameters = exec(dirExifTool+"exiftool", "-DateTimeOriginal", pathJPG);
 		columns=split(parameters,": -."); 	// extract original date and time
 		imgYear = columns[2];
 		imgMonth = columns[3];

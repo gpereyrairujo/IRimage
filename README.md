@@ -10,9 +10,10 @@
 
 ### Installation
 
-1. Install [ImageJ](https://imagej.nih.gov/ij/download.html) or [FIJI](https://imagej.net/Fiji/Downloads) (take note of the location where it is installed - you will need it in step 3)
-2. Download the complete [IRimage repository](https://github.com/gpereyrairujo/IRimage) using the 'Download ZIP' option in the green 'Code' button, save the ``IRimage-main.zip`` file and extract its contents 
-3. Find the ``IRimage`` folder (not the ``IRimage-main`` folder) and copy it to the ``ImageJ.app/plugins`` folder (or the ``Fiji.app/plugins`` folder if you installed FIJI)
+1. Install [ImageJ](https://imagej.nih.gov/ij/download.html) or [FIJI](https://imagej.net/Fiji/Downloads) (take note of the location where it is installed - you will need it in step 4).
+2. In MacOS, you will need to also install [Exiftool](https://exiftool.org/) (download and install the "MacOS package" version). In Windows the installation is not required, since this tool is included with IRimage.
+3. Download the complete [IRimage repository](https://github.com/gpereyrairujo/IRimage) using the 'Download ZIP' option in the green 'Code' button, save the ``IRimage-main.zip`` file and extract its contents.
+3. Open the recently un-zipped ``IRimage-main`` folder, then open the sub-folder corresponding to your operating system (``Windows`` or ``MacOS``), and then copy the complete ``IRimage`` folder to the ``ImageJ.app/plugins`` folder (or the ``Fiji.app/plugins`` folder if you installed FIJI). The dowloaded .zip file and the extracted ``IRimage-main`` folder can be deleted.
 
 ### Basic usage
 
@@ -46,7 +47,7 @@ Documentation and images licensed [CC-BY-SA-4.0](https://creativecommons.org/lic
 If this macro contributes to a project or publication, please acknowledge this by citing as:
 
 ```
-Pereyra Irujo, G. (2021). IRimage. Open source software for processing images from consumer thermal cameras. Available at: https://github.com/gpereyrairujo/IRimage/
+Pereyra Irujo G. 2022. IRimage: open source software for processing images from infrared thermal cameras. PeerJ Computer Science 8:e977 https://doi.org/10.7717/peerj-cs.977
 ```
 
 ### Contact

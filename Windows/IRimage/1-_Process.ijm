@@ -65,7 +65,10 @@ macro "IR-image-process" {
 	dirTEMP = dir+"temp"+File.separator;
 	dirRESULTS = dir+"results"+File.separator;
 	dirIRimage = getDir("plugins") + "IRimage" + File.separator;
+	// Exiftool path in Windows version (Exiftool portable version included with IRimage)
 	dirExifTool = dirIRimage + "exiftool" + File.separator;
+	// Exiftool path in MacOS version (Exiftool installed separately)
+	// dirExifTool = "/usr/local/bin/";
 	dirPalette = dirIRimage + "palette" + File.separator;
 	if (!File.exists(dirRAW_PNG)) File.makeDirectory(dirRAW_PNG); 
 	if (!File.exists(dirTEXT)) File.makeDirectory(dirTEXT); 
